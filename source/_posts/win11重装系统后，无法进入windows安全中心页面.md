@@ -36,7 +36,7 @@ date: 2024-09-23 19:13:21
 
    <img src="../img/windows22631.4037.png">
 
-4. 在搜索框中查找"Microsoft.SecHealthUI_8wekyb3d8bbwe.appx"组件，进行下载。下载完成后，安装时，会显示此电脑已安装了windows安全中心，不管，咱点击重新安装。
+4. 在搜索框中查找"Microsoft.SecHealthUI_8wekyb3d8bbwe.appx"组件，进行下载。下载完成后，给文件增加后缀".appx"，然后进行安装。安装时，会显示此电脑已安装了windows安全中心，不管，咱点击重新安装。
 
    <img src="../img/下载windows安装中心.png">
 
