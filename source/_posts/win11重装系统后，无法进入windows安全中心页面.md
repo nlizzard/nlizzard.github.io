@@ -1,16 +1,16 @@
 ---
 title: win11重装系统后，无法进入windows安全中心页面
-date: 2024-09-23 19:13:21
 tags: 
-  -win11系统重装问题
-  -windows安全中心白板页面
-  -windows安全中心进不去
-  -windows11
-  -随笔记录
+  - win11系统重装问题 
+  - windows安全中心白板页面
+  - windows安全中心进不去
+  - windows11 
+  - 随笔记录
 categories: win11系统bug
+abbrlink: 619eff95
+cover: "../img/windows安全中心异常.png"
+date: 2024-09-23 19:13:21
 ---
-
-<h1>win11重装系统后，无法进入windows安全中心页面</h1>
 
 <h2>起因</h2>
 
@@ -30,7 +30,7 @@ categories: win11系统bug
 
    <img src="../img/win11重要参数.png">
 
-3. 在<a href="https://uupdump.net">windows组件下载网站</a>中**(注意，这里以我的系统举例，读者按照自己的电脑参数进行操作)**,先选择版本号信息23H2，如图1；再选择操作系统版本，如图2。
+3. 在<a href="https://uupdump.net">windows组件下载网站</a>中<strong>(注意，这里以我的系统举例，读者按照自己的电脑参数进行操作)</strong>,先选择版本号信息23H2，如图1；再选择操作系统版本，如图2。
 
    <img src="../img/选择23H2.png">
 
