@@ -1,20 +1,21 @@
 ---
 title: 初尝Oh-My-Posh
-date: 2024-09-30 11:10:12
 tags:
   - windows终端美化
   - Oh-My-Posh简单使用
   - Powershell美化
-updated:
 categories: Powershell美化
-keywords: 
+keywords:
   - windows终端美化
   - Oh-My-Posh
   - Powershell
 description: 简单使用Oh-my-Posh对Powershell进行美化，让我们在使用Powershell增添一丝趣味。
-top_img:  
+cover: ../img/image-20240930111848291.png
+abbrlink: e0942bc7
+date: 2024-09-30 11:10:12
+updated:
+top_img:
 comments:
-cover:  ../img/image-20240930111848291.png
 toc:
 toc_number:
 toc_style_simple:
@@ -52,7 +53,7 @@ abcjs:
 
 ---
 
-### 1. 下载PowerShell和windowsTerminal
+### 下载PowerShell和windowsTerminal
 
 打开微软软件商店（Microsoft Store），下载和安装PowerShell和WindowsTerminal。如果本地这两个软件了，那就更新到最新版。
 
@@ -62,13 +63,15 @@ abcjs:
 
 > <strong style="font-size: 20px;color:skyblue">改完别忘了点保存！！</strong>
 
-### 2. 下载Oh-My-Posh及必要的字体Meslo
+### 下载Oh-My-Posh及必要的字体Meslo
 
 > <a href="https://ohmyposh.dev/">Oh-My-Posh</a>官网提供了四种安装方法，分别是winget，scoop，manual，chocolatey。可以根据自己的喜好使用对应的工具进行安装。这里附上指引安装的<a href="https://ohmyposh.dev/docs/installation/windows">官网链接</a>
 >
 > <strong style="color:orange;font-size:18px">这一步我演示的是scoop安装过程，如果使用其他方法可以参照官网安装教程</strong>
 
-#### 使用scoop安装Oh-My-Posh，只需在PowerShell中敲下以下指令即可。
+#### 使用scoop安装Oh-My-Posh
+
+只需在PowerShell中敲下以下指令即可。
 
 `` scoop install https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/oh-my-posh.json``
 
@@ -94,7 +97,7 @@ abcjs:
 
 安装完成后，进入下一步。
 
-### 3. 修改PowerShell配置文件和WindowsTerminal配置项
+### 修改PowerShell配置文件和WindowsTerminal配置项
 
 打开WindowsTerminal的设置页，修改PowerShell的字体为MesloLGM Nerd Font。
 
@@ -112,7 +115,7 @@ abcjs:
 
 ![image-20240930135150101](../img/image-20240930135150101.png)
 
-### 4. 如何查看和切换Oh-My-Posh的主题
+### 如何查看和切换Oh-My-Posh的主题
 
 > Oh-My-Posh内置了很多主题，我们可以查看这些主题，然后选一个自己喜欢的，进行使用。
 
@@ -152,7 +155,7 @@ ok，废话不多说，在PowerShell中敲下以下指令即可进行安装。
 
 > <strong style="color:skyBlue;font-size:18px">至此，咱们的终端美化算是完结撒花了，当然还有一些别的玩法，读者可以自行去学习~</strong>
 
-### 6. 效果展示
+### 效果展示
 
 最终效果展示如下：
 
