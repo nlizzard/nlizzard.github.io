@@ -73,7 +73,9 @@ abcjs:
 
 只需在PowerShell中敲下以下指令即可。
 
-`` scoop install https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/oh-my-posh.json``
+```powershell
+scoop install https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/oh-my-posh.json
+```
 
 > 注意：安装过程如果出现网络问题，多半是被墙了。建议配置终端代理，在命令行中分别敲下以下两行代码（<strong style="color:orange">这种方式只对当前终端有效</strong>）：
 >
@@ -83,7 +85,9 @@ abcjs:
 
 安装完成后，可以在PowerShell中敲下以下指令，查看是否安装成功：
 
-`` scoop list``
+``` powershell
+scoop list
+```
 
 敲完后如果有Oh-My-Posh包，则表示安装成功。
 
@@ -93,7 +97,9 @@ abcjs:
 
 在PowerShell中敲下下面这条命令即可。（注意：同样需要打开代理，否则可能出现网络超时问题）
 
-`` oh-my-posh font install meslo``
+`````powershell
+oh-my-posh font install meslo
+`````
 
 安装完成后，进入下一步。
 
@@ -105,7 +111,9 @@ abcjs:
 
 完成后，去修改PowerShell的配置文件。在PowerShell中敲下`` $profile``,查看PowerShell的配置文件所在位置。随后打开配置文件写入下面这条代码：
 
-`` oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\M365Princess.omp.json" | Invoke-Expression``
+`````json
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\M365Princess.omp.json" | Invoke-Expression
+`````
 
 然后保存。
 
@@ -121,7 +129,9 @@ abcjs:
 
 下面这条指令可以查看Oh-My-Posh所有的主题效果
 
-`` Get-PoshThemes``
+`````powershell
+Get-PoshThemes
+`````
 
 ![image-20240930133117830](../img/image-20240930133117830.png)
 
@@ -145,7 +155,9 @@ abcjs:
 
 ok，废话不多说，在PowerShell中敲下以下指令即可进行安装。
 
-`` Install-Module -Name Terminal-Icons -Repository PSGallery`` 
+`````powershell
+ Install-Module -Name Terminal-Icons -Repository PSGallery
+`````
 
 安装完成后，进入我们前面修改过的PowerShell配置文件，另起一行，写入以下代码：
 
