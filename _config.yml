@@ -125,4 +125,4 @@ search:
   field: post
   content: true
   format: html
-  template: ./search.xml
+  limit: 10000
