@@ -38,7 +38,7 @@ code_blocks:
   theme: pale night
   macStyle: true # 是否使用 Mac 风格
   # 代码块高度限制（单位: px）
-  height_limit: 100px
+  height_limit: 100
   word_wrap: false # 是否自动换行
 
   # 工具栏
@@ -70,7 +70,7 @@ avatar:
   # 头像图片链接
   img: img/logo.jpg
   # 是否启用头像效果
-  effect: true
+  effect: false
 
 # 禁用所有横幅图片
 disable_top_img: false
@@ -106,7 +106,7 @@ footer_img: true
 # 网站背景
 # 可以设置为颜色或图片
 # 图片格式: url(http://xxxxxx.com/xxx.jpg)l
-background: url(img/4096.png)
+background: img/background.jpg
 
 # 封面设置
 cover:
@@ -183,7 +183,7 @@ index_top_img_height:
 # 首页的副标题设置
 subtitle:
   # 是否启用副标题
-  enable: false
+  enable: true
   # 是否启用打字机效果
   effect: true
   # 自定义 typed.js
@@ -198,7 +198,8 @@ subtitle:
   # 3 - jinrishici.com
   source: false
   # 如果关闭打字机效果，副标题将仅显示 sub 的第一行内容
-  sub:
+  sub: 
+      - 乘风破浪会有时，直挂云帆济沧海。
 
 # 首页文章佈局
 # 1: 行佈局
@@ -573,7 +574,7 @@ search:
     # 页面加载时预加载搜索数据
     preload: false
     # 每篇文章显示的顶部 n 个搜索结果，设置为 -1 显示所有结果
-    top_n_per_article: 5
+    top_n_per_article: 1
     # 将 HTML 字符串反转义为可读内容
     unescape: false
     CDN:
@@ -937,7 +938,7 @@ mask:
 # 加载动画
 preloader:
   # 是否启用加载动画
-  enable: true
+  enable: false
   # 资源
   # 1. 全屏加载
   # 2. 进度条
@@ -1247,7 +1248,7 @@ CDN:
   # 注意： Dev 版本只能使用 'local' 作为内部脚本
   # 注意：将第三方脚本设置为 'local' 时，需要安装 hexo-butterfly-extjs
   internal_provider: local
-  third_party_provider: jsdelivr
+  third_party_provider: unpkg
 
   # 是否在 URL 中添加版本号，true 或 false
   version: false
