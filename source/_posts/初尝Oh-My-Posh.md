@@ -34,7 +34,7 @@ abcjs:
 
 > <strong style="color: orange;font-size:20px">此博客介绍的是windows下终端美化的方法！！</strong>
 
-## 引言
+## 1 引言
 
 ---
 
@@ -49,11 +49,11 @@ abcjs:
 > 5. 下载文件目录图标库（Terminal-Icons）
 > 6. 效果展示
 
-## 美化步骤
+## 2 美化步骤
 
 ---
 
-### 下载PowerShell和windowsTerminal
+### 2.1 下载PowerShell和windowsTerminal
 
 打开微软软件商店（Microsoft Store），下载和安装PowerShell和WindowsTerminal。如果本地这两个软件了，那就更新到最新版。
 
@@ -63,13 +63,13 @@ abcjs:
 
 > <strong style="font-size: 20px;color:skyblue">改完别忘了点保存！！</strong>
 
-### 下载Oh-My-Posh及必要的字体Meslo
+### 2.2 下载Oh-My-Posh及必要的字体Meslo
 
 > <a href="https://ohmyposh.dev/">Oh-My-Posh</a>官网提供了四种安装方法，分别是winget，scoop，manual，chocolatey。可以根据自己的喜好使用对应的工具进行安装。这里附上指引安装的<a href="https://ohmyposh.dev/docs/installation/windows">官网链接</a>
 >
 > <strong style="color:orange;font-size:18px">这一步我演示的是scoop安装过程，如果使用其他方法可以参照官网安装教程</strong>
 
-#### 使用scoop安装Oh-My-Posh
+#### 2.2.1 使用scoop安装Oh-My-Posh
 
 只需在PowerShell中敲下以下指令即可。
 
@@ -93,7 +93,7 @@ scoop list
 
 ![image-20240930131454392](../img/image-20240930131454392.png)
 
-#### 安装官方推荐字体Meslo字体
+#### 2.2.2 安装官方推荐字体Meslo字体
 
 在PowerShell中敲下下面这条命令即可。（注意：同样需要打开代理，否则可能出现网络超时问题）
 
@@ -103,7 +103,7 @@ oh-my-posh font install meslo
 
 安装完成后，进入下一步。
 
-### 修改PowerShell配置文件和WindowsTerminal配置项
+### 2.3 修改PowerShell配置文件和WindowsTerminal配置项
 
 打开WindowsTerminal的设置页，修改PowerShell的字体为MesloLGM Nerd Font。
 
@@ -123,7 +123,7 @@ oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\M365Princess.omp.json" | In
 
 ![image-20240930135150101](../img/image-20240930135150101.png)
 
-### 如何查看和切换Oh-My-Posh的主题
+### 2.4 如何查看和切换Oh-My-Posh的主题
 
 > Oh-My-Posh内置了很多主题，我们可以查看这些主题，然后选一个自己喜欢的，进行使用。
 
@@ -147,7 +147,7 @@ Get-PoshThemes
 
 > 到这里Oh-My-Posh的基础美化已经成功了！！但是为了我们的终端更加好看，我们可以在安装一下Terminal-Icons，这个包的作用是让我们的文件和目录前面有一个好看的小图标。
 
-### 下载文件目录图标库（Terminal-Icons）
+### 2.5 下载文件目录图标库（Terminal-Icons）
 
 下载前（文件和目录前面没有图标，啥都没有）：![image-20240930134019421](../img/image-20240930134019421.png)
 
@@ -167,13 +167,13 @@ ok，废话不多说，在PowerShell中敲下以下指令即可进行安装。
 
 > <strong style="color:skyBlue;font-size:18px">至此，咱们的终端美化算是完结撒花了，当然还有一些别的玩法，读者可以自行去学习~</strong>
 
-### 效果展示
+### 2.6 效果展示
 
 最终效果展示如下：
 
 ![image-20240930134124624](../img/image-20240930111701515.png)
 
-## 总结
+## 3 总结
 
 ---
 

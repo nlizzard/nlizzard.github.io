@@ -13,16 +13,16 @@ nav:
   # Navigation bar logo image
   logo: img/logo.jpg
   display_title: true
-  display_post_title: true  # 是否在滚动时显示文章标题
+  display_post_title: true # 是否在滚动时显示文章标题
   # Whether to fix navigation bar
   fixed: false # fixed navigation bar 是否固定状态栏
 
-# Menu 
+# Menu
 menu:
-    首页: / || fas fa-home
-    文章: /archives/ || fas fa-archive
-    标签: /tags/ || fas fa-tags
-    分类: /categories/ || fas fa-folder-open
+  首页: / || fas fa-home
+  文章: /archives/ || fas fa-archive
+  标签: /tags/ || fas fa-tags
+  分类: /categories/ || fas fa-folder-open
   # 清单||fas fa-list||hide:
   #   音乐: /music/ || fas fa-music
   #   电影: /movies/ || fas fa-video
@@ -47,7 +47,7 @@ code_blocks:
   # 是否显示语言标签
   language: true
   # true: 收缩代码块 | false: 展开代码块 | none: 展开代码块并隐藏按钮
-  shrink: true
+  shrink: false
   # 是否显示全屏显示代码块按钮
   fullpage: false
 
@@ -110,18 +110,18 @@ background: img/background.jpg
 
 # 封面设置
 cover:
-  # 是否禁用封面
+  # 是否展示封面
   index_enable: true
   aside_enable: true
   archives_enable: true
   # 主页封面的位置
-  # 选择: left/right/both
+  # 选择: left/right/both 似乎失效
   position: both
   # 当未设置封面时，显示默认封面
   default_cover:
-      - img/default.jpg
-      - img/default1.jpg
-      - img/default2.jpg
+    - img/default.jpg
+    - img/default1.jpg
+    - img/default2.jpg
     # - https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg
 
 # 替换损坏的图片
@@ -136,7 +136,7 @@ error_404:
   # 是否启用 404 页面
   enable: false
   # 404 页面的副标题
-  subtitle: 'Page Not Found'
+  subtitle: "Page Not Found"
   # 404 页面的卡片背景图片
   background: https://i.loli.net/2020/05/19/aKOcLiyPl2JQdFD.png
 
@@ -145,7 +145,7 @@ post_meta:
   # 主页页面
   page:
     # 日期类型: created / updated / both
-    date_type: both
+    date_type: created
     # 日期格式: date / relative
     date_format: date
     # 是否显示分类
@@ -159,7 +159,7 @@ post_meta:
     # 元数据位置: left / center
     position: left
     # 日期类型: created / updated / both
-    date_type: both
+    date_type: created
     # 日期格式: date / relative
     date_format: date
     # 是否显示分类
@@ -198,13 +198,18 @@ subtitle:
   # 3 - jinrishici.com
   source: false
   # 如果关闭打字机效果，副标题将仅显示 sub 的第一行内容
-  sub: 
-      - 乘风破浪会有时，直挂云帆济沧海。
+  sub:
+    - 乘风破浪会有时，直挂云帆济沧海。
 
-# 首页文章佈局
-# 1: 行佈局
-# 2: 列布局
-index_layout: 1
+# Article layout on the homepage
+# 1: Cover on the left, info on the right
+# 2: Cover on the right, info on the left
+# 3: Cover and info alternate between left and right
+# 4: Cover on top, info on the bottom
+# 5: Info displayed on the cover
+# 6: Masonry layout - Cover on top, info on the bottom
+# 7: Masonry layout - Info displayed on the cover
+index_layout: 3
 
 # 在首页显示文章简介
 # 1: 描述
@@ -226,7 +231,7 @@ toc:
   # 是否在页面中显示目录
   page: true
   # 是否显示目录编号
-  number: true
+  number: false
   # 是否默认展开目录
   expand: false
   # 是否使用简洁风格（仅适用于文章）
@@ -312,9 +317,9 @@ footer:
   custom_text:
   # 主题和框架的版权声明
   copyright:
-    enable: flase
+    enable: false
     # 显示版本号
-    version: fasle
+    version: false
 
 # --------------------------------------
 # 侧边栏设置
@@ -413,7 +418,7 @@ aside:
     # 标题显示系列名称
     series_title: false
     # 排序方式：title 或 date
-    orderBy: 'date'
+    orderBy: "date"
     # 排序顺序：1 表示升序，-1 表示降序
     order: -1
   card_webinfo:
@@ -422,7 +427,7 @@ aside:
     # 是否显示文章数量
     post_count: true
     # 是否显示最后推送日期
-    last_push_date: true
+    last_push_date: false
     sort_order:
     # 发佈日期与当前日期的时间差
     # 格式：Month/Day/Year Time 或 Year/Month/Day Time
@@ -447,9 +452,9 @@ translate:
   # 转换延迟
   translateDelay: 0
   # 按钮在简体中文时的文本
-  msgToTraditionalChinese: '繁'
+  msgToTraditionalChinese: "繁"
   # 按钮在繁体中文时的文本
-  msgToSimplifiedChinese: '简'
+  msgToSimplifiedChinese: "简"
 
 # 閲读模式
 readmode: true
@@ -615,7 +620,7 @@ comments:
   # 如果不需要评论功能，保持为空
   # 选择：Disqus/Disqusjs/Livere/Gitalk/Valine/Waline/Utterances/Facebook Comments/Twikoo/Giscus/Remark42/Artalk
   # 两个评论系统的格式：Disqus,Waline
-  use: 
+  use:
   # 按钮旁边显示评论系统名称
   text: true
   # 懒加载：评论系统将在评论元素进入浏览器视口时加载
@@ -968,13 +973,13 @@ beautify:
 font:
   global-font-size:
   code-font-size:
-  font-family:
-  code-font-family:
+  font-family: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"'
+  code-font-family: '"Fira Code", monospace'
 
 # 网站标题和副标题的字体设置
 blog_title_font:
   font_link:
-  font-family:
+  font-family: "Microsoft YaHei"
 
 # 分隔符图标的设置
 hr_icon:
@@ -1027,7 +1032,7 @@ canvas_nest:
   # 是否启用 canvas_nest
   enable: false
   # 线条颜色，默认: '0,0,0'; RGB 值: (R,G,B).(注意: 使用 ',' 分隔.)
-  color: '0,0,255'
+  color: "0,0,255"
   # 线条的不透明度 (0~1)
   opacity: 0.7
   # 背景的 z-index 属性
@@ -1085,7 +1090,7 @@ series:
   # 是否启用系列
   enable: false
   # 按标题或日期排序
-  orderBy: 'title'
+  orderBy: "title"
   # 排序方式。1, asc 为升序; -1, desc 为降序
   order: 1
   # 是否显示编号
@@ -1172,10 +1177,10 @@ snackbar:
   # 是否启用 Snackbar
   enable: true
   # 通知位置
-  position: bottom-left
+  position: top-center
   # 浅色模式和深色模式下的通知背景颜色
-  bg_light: '#49b1f5'
-  bg_dark: '#1f1f1f'
+  bg_light: "#49b1f5"
+  bg_dark: "#1f1f1f"
 
 # Instant.page
 # https://instant.page/
@@ -1255,7 +1260,6 @@ CDN:
 
   # 自定义格式
   # 例如：https://cdn.staticfile.org/${cdnjs_name}/${version}/${min_cdnjs_file}
-
 
   custom_format:
 
