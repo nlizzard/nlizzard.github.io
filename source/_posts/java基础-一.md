@@ -46,6 +46,29 @@ abcjs:
 2. <strong>Java EE(Java Enterprise Edition)<span style="color:gold">企业版</span></strong>：是为开发企业环境下的应用程序提供的一套解决方案。该技术体系中包含的技术如：Servlet、Jsp等，主要针对于Web应用程序开发。版本以前称为J2EE
 3. <strong>Java ME(Java Micro Edition)<span style="color: glod">小型版</span></strong>：支持Java程序运行在移动终端（手机、PDA）上的平台，对所有Java API有所精简，并加入了针对移动终端的支持，此版本以前称为J2ME
 
+> 简单来说，Java SE就是标准版，包含标准的JVM和标准库，而Java EE是企业版，它只是在Java SE的基础上加上了大量的API和库，以便方便开发Web应用、数据库、消息服务等，Java EE的应用使用的虚拟机和Java SE完全相同。Java ME就和Java SE不同，它是一个针对嵌入式设备的“瘦身版”，Java SE的标准库无法在Java ME上使用，Java ME的虚拟机也是“瘦身版”。
+
+```mermaid
+flowchart TD
+    %% 外层：JavaEE
+    subgraph JavaEE[JavaEE]
+        style JavaEE fill:#f8f8ff,stroke:#003366,stroke-width:3px,rx:150,ry:100,color:#000066,font-weight:bold
+
+        %% 中间层：JavaSE
+        subgraph JavaSE[JavaSE]
+            style JavaSE fill:#e6f7ff,stroke:#0066cc,stroke-width:2.5px,rx:120,ry:80,color:#004080,font-weight:bold
+
+            %% 内层：JavaME
+            JavaME([JavaME])
+            style JavaME fill:#ccf2ff,stroke:#0099ff,stroke-width:2px,rx:80,ry:60,color:#003355,font-weight:bold
+
+        end
+    end
+
+
+```
+
+
 ## 1.3 Java 重要特性
 
 1. Java语言是面向对象的（oop）
@@ -62,7 +85,7 @@ abcjs:
 
 1. JVM是一个虚拟的计算机，具有指令集并使用不同的存储区域。负责执行指令，管理数据、内存、寄存器。JVM包含在JDK中
 2. 对于不同平台，有不同的虚拟机
-3. Java虚拟机机制屏蔽了底层运行平台的差别，实现了“一次编译，到处运行”
+3. Java虚拟机机制屏蔽了底层运行平台的差别，实现了“一次编译，到处运行”。当然，这是针对Java开发者而言。对于虚拟机，需要为每个平台分别开发。
 
 ## 1.5 JDK，JRE介绍
 
@@ -101,4 +124,3 @@ abcjs:
 >**<span style="color:skyblue">其中单行注释和多行注释一般是给程序维护者看的</span>**
 >
 >**<span style="color:skyblue">类和方法，建议使用文档注释（javadoc）</span>**
-
