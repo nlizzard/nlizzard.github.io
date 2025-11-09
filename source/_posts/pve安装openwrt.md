@@ -65,7 +65,7 @@ OpenWrt是一个适用于嵌入式设备的Linux发行版。 相对原厂固件�
 6. 点击虚拟机中的控制台，启动虚拟机，等到一会儿，系统就成功安装了。
 7. 可选：在控制台中输入```vim /etc/config/network```编辑openwrt的ip地址，改为自己喜欢的。然后就可以在浏览器中通过自己设定的ip访问openwrt的管理界面了。
 
-![image-20251109134224064](../img/openwrt.jpg)
+![image-20251109134224064](../img/OpenWrt.jpg)
 
 
 
