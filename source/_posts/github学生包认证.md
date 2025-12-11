@@ -117,6 +117,8 @@ Validate Until:07/2027
 
 **补充：如果本人不在校内或学校附近或定位问题，导致出现出现这个界面**
 
+> 把上面的Study Form: Full-time改成Study Form: Distance learning.然后重新申请
+
 ![not on campus](../img/image-20251211125916390.png)
 
 **选择第二项**：`All coursework is via distance learning`，然后拍照同样的手法，创建一个txt文件，写入以下信息(**全部用英文**)，然后在电脑屏幕上放大写的文本文档，用手机拍，电脑点拍照。
