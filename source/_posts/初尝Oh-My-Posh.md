@@ -32,7 +32,7 @@ aside:
 abcjs:
 ---
 
-> <strong style="color: orange;font-size:20px">此博客介绍的是windows下终端美化的方法！！</strong>
+> <strong style="color: orange;font-size:20px">此文章介绍的是windows下终端美化的方法！！</strong>
 
 ## 1 引言
 
