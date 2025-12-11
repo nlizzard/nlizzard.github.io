@@ -1,5 +1,8 @@
 ---
-title: 初尝Oh-My-Posh
+# 1. 直接读取生成的静态文件 (极速)
+. $HOME\.omp-init.ps1
+#oh-my-posh init pwsh --config 'C:\Users\123\AppData\Local\Programs\oh-my-posh\themes\M365Princess.omp.json' | Invoke-Expression
+Import-Module -Name Terminal-Iconstitle: 初尝Oh-My-Posh
 tags:
   - windows终端美化
   - Oh-My-Posh简单使用
@@ -184,3 +187,70 @@ ok，废话不多说，在PowerShell中敲下以下指令即可进行安装。
 > <strong style="color:orange;font-size:20px">VsCode中需要修改终端的字体为MesloLGM Nerd Font，这样VsCode中的终端样式就能正确显示了</strong>
 
 > <strong style="color:red;font-size:15px">注意：美化后，终端打开的速度会变慢一点，因为每次打开时，要读取配置文件。</strong>
+
+## 补充
+
+1. 如果电脑中安装了conda，终端启动会巨慢无比，以下是一个解决方案
+
+```powershell
+notepad $PROFILE.CurrentUserAllHosts
+```
+
+将原来的内容
+
+```bash
+#region conda initialize
+# !! Contents within this block are managed by 'conda init' !!
+If (Test-Path "E:\officeSoftware\scoop\apps\anaconda3\current\App\Scripts\conda.exe") {
+    (& "E:\officeSoftware\scoop\apps\anaconda3\current\App\Scripts\conda.exe" "shell.powershell" "hook") | Out-String | ?{$_} | Invoke-Expression
+}
+#endregion
+```
+
+替换为
+
+```bash
+
+# 定义一个名为 conda 的“假”函数，实现延迟加载
+function conda {
+    # 1. 提示用户正在加载（因为这步需要 2-3 秒，给个心理预期）
+    Write-Host "正在初始化 Conda 环境，请稍候..." -ForegroundColor DarkGray
+
+    # 2. 这里的路径就是你原来的路径，我直接照搬过来了
+    $condaPath = "E:\officeSoftware\scoop\apps\anaconda3\current\App\Scripts\conda.exe"
+
+    if (Test-Path $condaPath) {
+        # 执行原来那句很慢的初始化命令
+        (& $condaPath "shell.powershell" "hook") | Out-String | ?{$_} | Invoke-Expression
+    }
+
+    # 3. 删除这个“假”函数，把“真”的 conda 命令释放出来
+    Remove-Item Function:\conda
+
+    # 4. 自动执行你刚才输入的命令（比如 conda activate xxx）
+    # 注意：这里简单的传参可能无法处理极其复杂的参数，但在日常使用完全足够
+    if ($args) {
+        & conda $args
+    } else {
+        & conda --help
+    }
+}
+```
+
+这样每次加载终端的时候，不会去初始化conda，只有当用到conda指令的时候，再去加载它。
+
+2. oh-my-posh的配置也可以再优化一下,终端输入
+
+```powershell
+oh-my-posh init pwsh --config '$env:POSH_THEMES_PATH\M365Princess.omp.json' --print > $HOME\.omp-init.ps1
+```
+
+上面这一步会将你的配置预先编译成一个 `.ps1` 文件，然后终端输入```notepad $PROFILE```，修改配置文件：
+
+```bash
+# 1. 直接读取编译生成的静态文件 (极速)
+. $HOME\.omp-init.ps1
+#oh-my-posh init pwsh --config '$env:POSH_THEMES_PATH\M365Princess.omp.json' | Invoke-Expression
+Import-Module -Name Terminal-Icons
+```
+
