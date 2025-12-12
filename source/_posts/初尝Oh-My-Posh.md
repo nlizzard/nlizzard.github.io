@@ -1,8 +1,4 @@
----
-# 1. 直接读取生成的静态文件 (极速)
-. $HOME\.omp-init.ps1
-#oh-my-posh init pwsh --config 'C:\Users\123\AppData\Local\Programs\oh-my-posh\themes\M365Princess.omp.json' | Invoke-Expression
-Import-Module -Name Terminal-Iconstitle: 初尝Oh-My-Posh
+title: 初尝Oh-My-Posh
 tags:
   - windows终端美化
   - Oh-My-Posh简单使用
