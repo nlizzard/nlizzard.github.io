@@ -1,0 +1,69 @@
+/* Article typography inspired by https://i.a632079.me/ */
+#post .post-content {
+  color: #000;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    "Noto Sans",
+    "PingFang SC",
+    "Microsoft YaHei",
+    sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+#post .post-content h1,
+#post .post-content h2,
+#post .post-content h3,
+#post .post-content h4,
+#post .post-content h5,
+#post .post-content h6,
+#post .post-content p,
+#post .post-content li,
+#post .post-content th,
+#post .post-content td {
+  color: #000;
+}
+
+#post .post-content h1,
+#post .post-content h2,
+#post .post-content h3 {
+  font-weight: 400;
+}
+
+#post .post-content a {
+  color: #01506f;
+}
+
+#post .post-content a:hover {
+  color: #012c3c;
+  text-underline-position: under;
+}
+
+[data-theme="dark"] #post .post-content,
+[data-theme="dark"] #post .post-content h1,
+[data-theme="dark"] #post .post-content h2,
+[data-theme="dark"] #post .post-content h3,
+[data-theme="dark"] #post .post-content h4,
+[data-theme="dark"] #post .post-content h5,
+[data-theme="dark"] #post .post-content h6,
+[data-theme="dark"] #post .post-content p,
+[data-theme="dark"] #post .post-content li,
+[data-theme="dark"] #post .post-content th,
+[data-theme="dark"] #post .post-content td {
+  color: #e6e6e6;
+}
+
+[data-theme="dark"] #post .post-content a {
+  color: #0174a2;
+}
+
+[data-theme="dark"] #post .post-content a:hover {
+  color: #0cb9fd;
+}
