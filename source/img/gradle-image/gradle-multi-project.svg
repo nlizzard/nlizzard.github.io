@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Gradle 多模块工程结构</title>
+  <desc id="desc">展示根项目、settings、版本目录、build-logic、app、service、common 等子项目关系。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fbfcf9"/>
+      <stop offset="100%" stop-color="#edf6ff"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#256d47"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#183225" flood-opacity="0.14"/>
+    </filter>
+    <style>
+      .title { font: 700 32px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #183225; }
+      .note { font: 400 16px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #52645b; }
+      .root { fill: #173323; stroke: #47a66b; stroke-width: 2; rx: 18; filter: url(#shadow); }
+      .module { fill: #ffffff; stroke: #c9ddd1; stroke-width: 2; rx: 18; filter: url(#shadow); }
+      .logic { fill: #fff8e7; stroke: #e6b450; stroke-width: 2; rx: 18; filter: url(#shadow); }
+      .label-white { font: 700 22px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #ffffff; }
+      .label { font: 700 21px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #173323; }
+      .small-white { font: 400 15px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #d9f0e1; }
+      .small { font: 400 15px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #5d6c64; }
+      .line { stroke: #256d47; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #8aa897; stroke-width: 2.5; stroke-dasharray: 8 8; fill: none; marker-end: url(#arrow); }
+      .tree { font: 600 17px Consolas, "Microsoft YaHei", monospace; fill: #173323; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="680" fill="url(#bg)"/>
+  <text x="60" y="68" class="title">Gradle 多模块工程结构</text>
+  <text x="60" y="98" class="note">根项目负责声明结构和公共约定，子项目各自拥有构建脚本，模块之间通过 project 依赖连接。</text>
+
+  <rect x="70" y="150" width="300" height="395" class="module"/>
+  <text x="110" y="195" class="label">目录视图</text>
+  <text x="105" y="235" class="tree">shop/</text>
+  <text x="105" y="265" class="tree">├── settings.gradle.kts</text>
+  <text x="105" y="295" class="tree">├── build.gradle.kts</text>
+  <text x="105" y="325" class="tree">├── gradle/libs.versions.toml</text>
+  <text x="105" y="355" class="tree">├── build-logic/</text>
+  <text x="105" y="385" class="tree">├── common/</text>
+  <text x="105" y="415" class="tree">├── user-service/</text>
+  <text x="105" y="445" class="tree">└── order-service/</text>
+  <text x="105" y="500" class="small">每个子目录可有自己的 build.gradle.kts</text>
+
+  <rect x="470" y="145" width="260" height="115" class="root"/>
+  <text x="600" y="190" text-anchor="middle" class="label-white">Root Project</text>
+  <text x="600" y="222" text-anchor="middle" class="small-white">settings 声明 include</text>
+  <text x="600" y="246" text-anchor="middle" class="small-white">集中仓库和版本目录</text>
+
+  <rect x="820" y="145" width="270" height="115" class="logic"/>
+  <text x="955" y="190" text-anchor="middle" class="label">build-logic</text>
+  <text x="955" y="222" text-anchor="middle" class="small">复用构建约定</text>
+  <text x="955" y="246" text-anchor="middle" class="small">java-common-conventions</text>
+
+  <rect x="450" y="355" width="210" height="105" class="module"/>
+  <text x="555" y="397" text-anchor="middle" class="label">common</text>
+  <text x="555" y="428" text-anchor="middle" class="small">DTO、工具、公共异常</text>
+
+  <rect x="735" y="330" width="210" height="105" class="module"/>
+  <text x="840" y="372" text-anchor="middle" class="label">user-service</text>
+  <text x="840" y="403" text-anchor="middle" class="small">依赖 common</text>
+
+  <rect x="735" y="480" width="210" height="105" class="module"/>
+  <text x="840" y="522" text-anchor="middle" class="label">order-service</text>
+  <text x="840" y="553" text-anchor="middle" class="small">依赖 common</text>
+
+  <path d="M370 238 C410 210, 430 205, 470 202" class="line"/>
+  <path d="M730 202 H820" class="dash"/>
+  <path d="M600 260 C590 300, 570 325, 555 355" class="line"/>
+  <path d="M660 410 H735" class="line"/>
+  <path d="M660 410 C700 450, 710 505, 735 532" class="line"/>
+  <path d="M955 260 C940 300, 880 300, 845 330" class="dash"/>
+  <path d="M955 260 C950 350, 900 430, 845 480" class="dash"/>
+
+  <text x="450" y="625" class="note">Maven 的 parent/aggregation 在 Gradle 中通常拆成 settings 的 include、版本目录、约定插件和 project 依赖。</text>
+</svg>

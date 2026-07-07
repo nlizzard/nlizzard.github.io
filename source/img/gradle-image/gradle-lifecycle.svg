@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Gradle 生命周期与任务图</title>
+  <desc id="desc">展示 Gradle 初始化、配置、执行三个阶段，以及任务之间形成有向无环图。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fbff"/>
+      <stop offset="100%" stop-color="#eef8f1"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#256d47"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#183225" flood-opacity="0.14"/>
+    </filter>
+    <style>
+      .title { font: 700 32px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #183225; }
+      .note { font: 400 16px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #52645b; }
+      .phase { fill: #ffffff; stroke: #c9ddd1; stroke-width: 2; rx: 18; filter: url(#shadow); }
+      .phase-head { font: 700 24px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #173323; }
+      .phase-text { font: 400 16px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #56685f; }
+      .task { fill: #173323; stroke: #47a66b; stroke-width: 2; rx: 16; filter: url(#shadow); }
+      .task2 { fill: #ffffff; stroke: #47a66b; stroke-width: 2; rx: 16; filter: url(#shadow); }
+      .task-label { font: 700 18px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #ffffff; }
+      .task-label2 { font: 700 18px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #173323; }
+      .line { stroke: #256d47; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .thin { stroke: #9cb6a8; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1200" height="620" fill="url(#bg)"/>
+  <text x="60" y="68" class="title">Gradle 生命周期与任务图</text>
+  <text x="60" y="98" class="note">一次构建不是线性脚本，而是三个阶段加一个任务有向无环图。</text>
+
+  <rect x="70" y="160" width="300" height="150" class="phase"/>
+  <text x="220" y="205" text-anchor="middle" class="phase-head">1. 初始化</text>
+  <text x="220" y="238" text-anchor="middle" class="phase-text">读取 settings.gradle(.kts)</text>
+  <text x="220" y="266" text-anchor="middle" class="phase-text">确定 root 与 subprojects</text>
+  <text x="220" y="294" text-anchor="middle" class="phase-text">加载 includeBuild</text>
+
+  <rect x="450" y="160" width="300" height="150" class="phase"/>
+  <text x="600" y="205" text-anchor="middle" class="phase-head">2. 配置</text>
+  <text x="600" y="238" text-anchor="middle" class="phase-text">执行 build.gradle(.kts)</text>
+  <text x="600" y="266" text-anchor="middle" class="phase-text">注册任务、依赖、插件扩展</text>
+  <text x="600" y="294" text-anchor="middle" class="phase-text">生成被请求任务图</text>
+
+  <rect x="830" y="160" width="300" height="150" class="phase"/>
+  <text x="980" y="205" text-anchor="middle" class="phase-head">3. 执行</text>
+  <text x="980" y="238" text-anchor="middle" class="phase-text">按任务图顺序执行</text>
+  <text x="980" y="266" text-anchor="middle" class="phase-text">跳过 UP-TO-DATE 节点</text>
+  <text x="980" y="294" text-anchor="middle" class="phase-text">产出 classes、jar、报告</text>
+
+  <path d="M370 235 H450" class="line"/>
+  <path d="M750 235 H830" class="line"/>
+
+  <rect x="155" y="420" width="140" height="62" class="task2"/>
+  <text x="225" y="458" text-anchor="middle" class="task-label2">compileJava</text>
+  <rect x="385" y="370" width="140" height="62" class="task2"/>
+  <text x="455" y="408" text-anchor="middle" class="task-label2">processResources</text>
+  <rect x="385" y="500" width="140" height="62" class="task2"/>
+  <text x="455" y="538" text-anchor="middle" class="task-label2">test</text>
+  <rect x="625" y="420" width="140" height="62" class="task2"/>
+  <text x="695" y="458" text-anchor="middle" class="task-label2">classes</text>
+  <rect x="855" y="420" width="140" height="62" class="task"/>
+  <text x="925" y="458" text-anchor="middle" class="task-label">build</text>
+
+  <path d="M295 451 C330 451, 350 401, 385 401" class="thin"/>
+  <path d="M295 451 H625" class="thin"/>
+  <path d="M525 401 C560 401, 585 451, 625 451" class="thin"/>
+  <path d="M525 531 C610 531, 640 486, 695 482" class="thin"/>
+  <path d="M765 451 H855" class="line"/>
+  <text x="60" y="585" class="note">关键习惯：把耗时逻辑放到任务动作 doLast 或 Provider 中，避免配置阶段提前做重活。</text>
+</svg>

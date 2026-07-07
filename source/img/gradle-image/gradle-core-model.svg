@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Gradle 核心工作模型</title>
+  <desc id="desc">展示 Gradle Wrapper、Settings、Build Script、Plugin、Task Graph、Artifacts 与 Repository 之间的关系。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f7fbf8"/>
+      <stop offset="55%" stop-color="#eef7f1"/>
+      <stop offset="100%" stop-color="#eef4fb"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#183225" flood-opacity="0.15"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#2e7d52"/>
+    </marker>
+    <style>
+      .title { font: 700 32px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #183225; }
+      .subtitle { font: 400 16px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #52645b; }
+      .box { fill: #ffffff; stroke: #c9ddd1; stroke-width: 2; rx: 18; filter: url(#shadow); }
+      .box-dark { fill: #183225; stroke: #2e7d52; stroke-width: 2; rx: 18; filter: url(#shadow); }
+      .label { font: 700 21px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #173323; }
+      .label-dark { font: 700 21px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #ffffff; }
+      .small { font: 400 15px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #5d6c64; }
+      .small-dark { font: 400 15px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #d9f0e1; }
+      .chip { fill: #e9f7ed; stroke: #91c7a3; stroke-width: 1.4; rx: 14; }
+      .chip-text { font: 600 15px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #256d47; }
+      .line { stroke: #2e7d52; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #779687; stroke-width: 2.5; stroke-dasharray: 8 8; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1200" height="650" fill="url(#bg)"/>
+  <text x="60" y="68" class="title">Gradle 核心工作模型</text>
+  <text x="60" y="98" class="subtitle">从 Wrapper 启动，到解析工程、装配插件、生成任务图，再产出构建结果。</text>
+
+  <rect x="60" y="170" width="170" height="120" class="box-dark"/>
+  <text x="145" y="216" text-anchor="middle" class="label-dark">Wrapper</text>
+  <text x="145" y="246" text-anchor="middle" class="small-dark">gradlew</text>
+  <text x="145" y="270" text-anchor="middle" class="small-dark">锁定 Gradle 版本</text>
+
+  <rect x="285" y="170" width="170" height="120" class="box"/>
+  <text x="370" y="216" text-anchor="middle" class="label">Settings</text>
+  <text x="370" y="246" text-anchor="middle" class="small">rootProject.name</text>
+  <text x="370" y="270" text-anchor="middle" class="small">include 子项目</text>
+
+  <rect x="510" y="170" width="170" height="120" class="box"/>
+  <text x="595" y="216" text-anchor="middle" class="label">Build Script</text>
+  <text x="595" y="246" text-anchor="middle" class="small">build.gradle.kts</text>
+  <text x="595" y="270" text-anchor="middle" class="small">声明插件和依赖</text>
+
+  <rect x="735" y="170" width="170" height="120" class="box"/>
+  <text x="820" y="216" text-anchor="middle" class="label">Plugins</text>
+  <text x="820" y="246" text-anchor="middle" class="small">java-library</text>
+  <text x="820" y="270" text-anchor="middle" class="small">application 等</text>
+
+  <rect x="960" y="170" width="180" height="120" class="box-dark"/>
+  <text x="1050" y="216" text-anchor="middle" class="label-dark">Task Graph</text>
+  <text x="1050" y="246" text-anchor="middle" class="small-dark">compile</text>
+  <text x="1050" y="270" text-anchor="middle" class="small-dark">test / jar / publish</text>
+
+  <path d="M230 230 H285" class="line"/>
+  <path d="M455 230 H510" class="line"/>
+  <path d="M680 230 H735" class="line"/>
+  <path d="M905 230 H960" class="line"/>
+
+  <rect x="90" y="380" width="245" height="150" class="box"/>
+  <text x="212" y="423" text-anchor="middle" class="label">Repository</text>
+  <text x="212" y="455" text-anchor="middle" class="small">mavenCentral / 私服</text>
+  <text x="212" y="482" text-anchor="middle" class="small">解析外部模块依赖</text>
+  <rect x="130" y="500" width="165" height="28" class="chip"/>
+  <text x="212" y="520" text-anchor="middle" class="chip-text">group:name:version</text>
+
+  <rect x="440" y="380" width="300" height="150" class="box"/>
+  <text x="590" y="423" text-anchor="middle" class="label">Gradle User Home</text>
+  <text x="590" y="455" text-anchor="middle" class="small">~/.gradle/caches</text>
+  <text x="590" y="482" text-anchor="middle" class="small">缓存依赖、插件和构建输出</text>
+  <rect x="500" y="500" width="180" height="28" class="chip"/>
+  <text x="590" y="520" text-anchor="middle" class="chip-text">离线与增量构建基础</text>
+
+  <rect x="845" y="380" width="255" height="150" class="box"/>
+  <text x="972" y="423" text-anchor="middle" class="label">Artifacts</text>
+  <text x="972" y="455" text-anchor="middle" class="small">classes / jar / bootJar</text>
+  <text x="972" y="482" text-anchor="middle" class="small">测试报告、发布包</text>
+  <rect x="900" y="500" width="145" height="28" class="chip"/>
+  <text x="972" y="520" text-anchor="middle" class="chip-text">build/ 目录</text>
+
+  <path d="M212 380 C260 320, 470 330, 565 292" class="dash"/>
+  <path d="M590 380 C650 325, 915 326, 1012 292" class="dash"/>
+  <path d="M1050 290 V380 H972" class="line"/>
+
+  <text x="60" y="600" class="subtitle">一句话记忆：Gradle 先确定工程结构，再配置项目和任务，最后只执行被请求任务图上的节点。</text>
+</svg>
